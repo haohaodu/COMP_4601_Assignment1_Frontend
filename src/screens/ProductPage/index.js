@@ -18,7 +18,7 @@ const ProductPage = () => {
 
   useEffect(() => {
     axios
-      .get(`/products?name=${queryText}`)
+      .get(`/fruit?search=${queryText}`)
       .then(({ data: { data } }) => setProducts(data));
   }, []);
 
@@ -33,7 +33,7 @@ const ProductPage = () => {
   };
 
   const handleSearch = () => {
-    const nameStr = queryText.length !== 0 ? `name=` + queryText + `&` : ``;
+    const nameStr = queryText.length !== 0 ? `search=` + queryText + `&` : ``;
     const typeStr = type === `instock` ? `instock=true` : ``;
     const queryUrl = `products?` + nameStr + typeStr;
     console.log("query url: ", queryUrl);
@@ -61,16 +61,15 @@ const ProductPage = () => {
         </QueryTypes>
         {products &&
           products.length !== 0 &&
-          products.map(({ name, _id, price, width, length, height, stock }) => (
+          products.map(({ title, ref, url, score }) => (
             <ProductCard
-              key={_id}
-              name={name}
-              id={_id}
-              price={price}
-              width={width}
-              length={length}
-              height={height}
-              stock={stock}
+              key={ref}
+              name={title}
+              id={ref}
+              width={0}
+              length={0}
+              height={0}
+              stock={score}
               handleClick={handleClick}
             />
           ))}
