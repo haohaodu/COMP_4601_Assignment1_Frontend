@@ -9,10 +9,10 @@ import Select from "@mui/material/Select";
 const Dropdown = ({ value, handleChange }) => {
   return (
     <FormControl fullWidth>
-      <InputLabel>Type</InputLabel>
+      <InputLabel>Boost</InputLabel>
       <Select value={value} label="Age" onChange={handleChange}>
-        <MenuItem value={"all"}>all</MenuItem>
-        <MenuItem value={"instock"}>in stock</MenuItem>
+        <MenuItem value={`true`}>true</MenuItem>
+        <MenuItem value={`false`}>false</MenuItem>
       </Select>
     </FormControl>
   );

@@ -25,7 +25,7 @@ const ProductCard = ({ name, id, stock, url, handleClick }) => {
             {id}
           </StyledLink>
           <br />
-          Score: {stock} <br />
+          PageRank: {stock} <br />
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
